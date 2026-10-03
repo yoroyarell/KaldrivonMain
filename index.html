@@ -58,7 +58,7 @@
 #demos h3.demo-name{letter-spacing:-.02em}
 #demos h3.demo-name span{color:var(--accent)}
 #demos .demo-domains{list-style:none;margin:6px 0 14px;padding:0;display:flex;flex-wrap:wrap;gap:6px}
-#demos .demo-domains li{display:inline-flex;align-items:center;height:24px;margin:0;font-size:.68rem;font-weight:600;letter-spacing:.02em;color:var(--accent);background:#eef6f2;border:1px solid var(--line);border-radius:999px;padding:0 10px;line-height:1}
+#demos .demo-domains li{display:inline-block;min-height:24px;margin:0;font-size:.68rem;vertical-align:middle;font-weight:600;letter-spacing:.02em;color:var(--accent);background:#eef6f2;border:1px solid var(--line);border-radius:999px;padding:4px 10px;line-height:1.25}
 #demos .demo-domains li::before,#demos .demo-domains li::marker{content:none}
 #demos .demo-domains li:first-child{background:var(--dark);border-color:var(--dark);color:#fff;text-transform:uppercase;letter-spacing:.08em}
 @media print{#demos .demo-domains li{border:1px solid #999;background:none;color:#000}}
@@ -1765,7 +1765,7 @@ GTA:'Greater Toronto Area.',
 RANs:'Radio Access Networks — the radio equipment connecting mobile devices to networks.'
 };
 const excluded='h1,h2,h3,h4,h5,h6,a,button,summary,script,style,textarea,code,pre,abbr,.brand,.demo-name,.reader-series,.sec-eyebrow,.eyebrow';
-const pattern=new RegExp('(?<![\\w#])('+Object.keys(glossary).sort((a,b)=>b.length-a.length).map(s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\</body>')).join('|')+')(?!\\w)','g');
+const pattern=new RegExp('(?<![\\w#])('+Object.keys(glossary).sort((a,b)=>b.length-a.length).map(s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')(?!\\w)','g');
 const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
 const nodes=[];let n;
 while(n=walker.nextNode())if(!n.parentElement.closest(excluded)&&pattern.test(n.textContent)){nodes.push(n);pattern.lastIndex=0;}else pattern.lastIndex=0;
