@@ -1,0 +1,22 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- assign public_urls = "" | split: "," -%}
+{%- assign public_files = site.pages | concat: site.static_files -%}
+{%- for item in public_files -%}
+  {%- if item.extname == ".html" or item.extname == ".htm" -%}
+    {%- unless item.sitemap == false -%}
+      {%- assign public_path = item.url | default: item.path -%}
+      {%- unless public_path == "/404.html" or public_path == "/404.htm" -%}
+        {%- assign public_path = public_path | replace: "/index.html", "/" | replace: "/index.htm", "/" -%}
+        {%- assign public_urls = public_urls | push: public_path -%}
+      {%- endunless -%}
+    {%- endunless -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign public_urls = public_urls | uniq | sort -%}
+{% for public_path in public_urls %}  <url><loc>{{ public_path | prepend: "https://kaldrivon.com" | xml_escape }}</loc></url>
+{% endfor %}</urlset>
