@@ -246,6 +246,16 @@ header>.wrap{position:relative;z-index:1}
 .product-highlight-actions{align-self:start;box-sizing:border-box;padding-top:36px;margin-top:0}
 .product-highlight-card[aria-labelledby="smo-book-title"] .product-highlight-actions{padding-top:36px}
 }
+
+/* Let the mobile picture and headings determine their own height */
+@media(max-width:760px){
+.product-highlight-card{grid-template-rows:auto auto auto auto auto;align-content:start}
+.product-highlight-image{height:auto;max-height:none;align-self:start}
+.product-highlight-body>.sec-eyebrow{align-self:start}
+.product-highlight-body>h3{align-self:start}
+.product-highlight-body>.minismo-spotlight-tagline{align-self:start}
+.product-highlight-body>.minismo-spotlight-description{padding-top:16px;padding-bottom:0}
+}
 </style>
 <style id="product-image-viewer-styles">
 .product-highlight-image{cursor:zoom-in}
