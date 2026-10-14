@@ -303,6 +303,7 @@ header>.wrap{position:relative;z-index:1}
 @media print{.minismo-comparison>*{display:block!important}.minismo-description-tooltip{display:none!important}}
 </style>
 <style id="minismo-four-plan-styles">.minismo-project .minismo-plans{grid-template-columns:repeat(4,minmax(0,1fr))}.minismo-project .minismo-custom{font-size:.82rem;margin:4px 0 16px}.minismo-project .minismo-table-scroll table{min-width:700px}.minismo-project .minismo-price span{line-height:1.6}@media(max-width:1100px){.minismo-project .minismo-plans{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.minismo-project .minismo-plans{grid-template-columns:1fr}}@media print{.minismo-project .minismo-plans{grid-template-columns:repeat(2,1fr)}}</style>
+<style id="minismo-collapsible-pricing-styles">.minismo-project #minismo-pricing>summary{cursor:pointer;font:700 1.1rem/1.5 Manrope,Arial,sans-serif;color:var(--ink)}.minismo-pricing-cue{font:400 .75rem/1.5 Arial,sans-serif;color:var(--muted);margin-left:12px;display:inline-block}.minismo-project #minismo-pricing[open]>summary{margin-bottom:18px}.minismo-pricing-content>p{font-size:.85rem}.minismo-project #minismo-pricing>summary:focus-visible{outline:3px solid #d18120;outline-offset:5px}@media print{.minismo-pricing-content{display:block!important}}</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a><!-- Sticky nav -->
@@ -405,8 +406,8 @@ header>.wrap{position:relative;z-index:1}
 <p>Windows 11 x64 · Early release, actively evolving.<br/><a href="https://github.com/yoroyarell/KaldrivonMiniSMO" target="_blank" rel="noopener noreferrer" class="minismo-github-link">See GitHub for release notes and installation details. ↗</a></p>
 </div>
 </article>
-<div class="minismo-pricing" id="minismo-pricing" aria-labelledby="minismo-pricing-title">
-<h3 id="minismo-pricing-title">Editions &amp; annual pricing</h3><p class="minismo-version"><strong>Valid from MiniSMO version 0.4.1.</strong> All editions include all released features, APIs, integrations, automation and updates.</p>
+<details class="minismo-pricing" id="minismo-pricing"><summary id="minismo-pricing-title">Editions &amp; annual pricing <span class="minismo-pricing-cue">View plans in CAD</span></summary><div class="minismo-pricing-content">
+<p class="minismo-version"><strong>Valid from MiniSMO version 0.4.1.</strong> All editions include all released features, APIs, integrations, automation and updates.</p>
 <p>All prices are in Canadian dollars (CAD), before applicable taxes. Paid plans are billed annually per instance. Choose free Community, add support, or license a larger deployment.</p>
 <div class="minismo-plans">
 <article><h4>Community</h4><p class="minismo-price">$0 <span>CAD · Free forever</span></p><p>Free for up to 5 external NFs. Includes all released features, APIs, integrations, automation and updates. Self-service documentation and community resources.</p></article>
@@ -433,7 +434,7 @@ header>.wrap{position:relative;z-index:1}
 <p class="minismo-terms">Commercial subscriptions, feature entitlements, equipment compatibility and support scope are confirmed in the order agreement. Community access does not include professional support or an assurance of compatibility with every NF.</p>
 </details>
 <a class="button minismo-sales" href="#contact">Contact sales <span aria-hidden="true">↗</span></a>
-</div>
+</div></details>
 </div>
 <div class="grid">
 <span aria-hidden="true" hidden=""></span><!-- keeps the SMO card in the normal 2-column layout -->
