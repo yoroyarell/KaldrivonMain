@@ -304,7 +304,7 @@ header>.wrap{position:relative;z-index:1}
 </style>
 <style id="minismo-four-plan-styles">.minismo-project .minismo-plans{grid-template-columns:repeat(4,minmax(0,1fr))}.minismo-project .minismo-custom{font-size:.82rem;margin:4px 0 16px}.minismo-project .minismo-table-scroll table{min-width:700px}.minismo-project .minismo-price span{line-height:1.6}@media(max-width:1100px){.minismo-project .minismo-plans{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.minismo-project .minismo-plans{grid-template-columns:1fr}}@media print{.minismo-project .minismo-plans{grid-template-columns:repeat(2,1fr)}}</style>
 <style id="minismo-collapsible-pricing-styles">.minismo-project #minismo-pricing>summary{cursor:pointer;font:700 1.1rem/1.5 Manrope,Arial,sans-serif;color:var(--ink)}.minismo-pricing-cue{font:400 .75rem/1.5 Arial,sans-serif;color:var(--muted);margin-left:12px;display:inline-block}.minismo-project #minismo-pricing[open]>summary{margin-bottom:18px}.minismo-pricing-content>p{font-size:.85rem}.minismo-project #minismo-pricing>summary:focus-visible{outline:3px solid #d18120;outline-offset:5px}@media print{.minismo-pricing-content{display:block!important}}</style>
-</head>
+<style id="minismo-pricing-hidden">#minismo-pricing[hidden]{display:none!important}</style><style id="minismo-capacity-button-styles">#minismo.minismo-feature{border-radius:7px}#minismo .minismo-capacity-action{margin-top:20px}#minismo .minismo-capacity-contact{background:#ffd079;border-color:#ffd079;color:#09262e;font-weight:800;padding:12px 18px}#minismo .minismo-capacity-contact:hover{background:#ffe1a8;border-color:#ffe1a8;color:#09262e}#minismo .minismo-capacity-contact:focus-visible{outline:3px solid #fff;outline-offset:4px}</style><style id="minismo-capacity-button-compact">#minismo .minismo-capacity-contact{font-size:.74rem;line-height:1.4;padding:8px 12px;font-weight:700}#minismo .minismo-capacity-action{margin-top:14px}</style></head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a><!-- Sticky nav -->
 <nav aria-label="Primary navigation" class="navbar">
@@ -404,9 +404,9 @@ header>.wrap{position:relative;z-index:1}
 <span class="project-kind">Community edition · Free for up to 5 external NFs</span>
 <div class="buttons"><a class="button" href="https://github.com/yoroyarell/KaldrivonMiniSMO/releases" rel="noopener noreferrer" target="_blank">Download MiniSMO <span aria-hidden="true">↗</span></a></div>
 <p>Windows 11 x64 · Early release, actively evolving.<br/><a href="https://github.com/yoroyarell/KaldrivonMiniSMO" target="_blank" rel="noopener noreferrer" class="minismo-github-link">See GitHub for release notes and installation details. ↗</a></p>
-</div>
+<div class="minismo-capacity-action"><a class="button minismo-capacity-contact" href="mailto:info@kaldrivon.com?subject=MiniSMO%20%E2%80%94%20more%20than%205%20NFs">Discuss integration for more than 5 NFs <span aria-hidden="true">↗</span></a></div></div>
 </article>
-<details class="minismo-pricing" id="minismo-pricing"><summary id="minismo-pricing-title">Editions &amp; annual pricing <span class="minismo-pricing-cue">View plans in CAD</span></summary><div class="minismo-pricing-content">
+<details class="minismo-pricing" id="minismo-pricing" hidden><summary id="minismo-pricing-title">Editions &amp; annual pricing <span class="minismo-pricing-cue">View plans in CAD</span></summary><div class="minismo-pricing-content">
 <p class="minismo-version"><strong>Valid from MiniSMO version 0.4.1.</strong> All editions include all released features, APIs, integrations, automation and updates.</p>
 <p>All prices are in Canadian dollars (CAD), before applicable taxes. Paid plans are billed annually per instance. Choose free Community, add support, or license a larger deployment.</p>
 <div class="minismo-plans">
