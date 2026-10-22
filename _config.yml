@@ -1,0 +1,4 @@
+# Jekyll settings for kaldrivon.com (built by .github/workflows/pages.yml)
+exclude:
+  - scripts
+  - README.md

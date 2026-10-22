@@ -26,15 +26,22 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v5
-      - name: Site files
-        run: |
-          mkdir _site
-          rsync -a --exclude '.git' --exclude '.github' --exclude 'scripts' --exclude '_site' ./ _site/
+      - uses: actions/configure-pages@v5
+      # the same Jekyll build as GitHub's branch deployment (sitemap.xml is a Jekyll template)
+      - uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
       - name: MiniSMO installers from the newest releases
         env:
           GH_TOKEN: ${{ github.token }}
           KEEP: "5"
-        run: bash scripts/fetch-minismo-downloads.sh _site/downloads/minismo
+        run: |
+          bash scripts/fetch-minismo-downloads.sh "$RUNNER_TEMP/minismo"
+          # the Jekyll step runs in a container and leaves _site owned by root
+          sudo mkdir -p _site/downloads
+          sudo cp -r "$RUNNER_TEMP/minismo" _site/downloads/minismo
+          ls -la _site/downloads/minismo
       - uses: actions/upload-pages-artifact@v4
         with:
           path: _site
