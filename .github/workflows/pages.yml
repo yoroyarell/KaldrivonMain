@@ -1,0 +1,50 @@
+# kaldrivon.com: the site files of this repository plus the MiniSMO installers of the newest releases, served at
+#   https://kaldrivon.com/downloads/minismo/<version>/Kaldrivon-MiniSMO-<version>-Setup.exe (and .sha256)
+# Fixed, versioned URLs that answer 200 with the file (no redirect), as the Microsoft Store requires for EXE apps.
+# The installers are fetched from the public GitHub releases at deploy time and never committed here.
+# Needs Settings > Pages > Build and deployment > Source: GitHub Actions.
+name: Deploy kaldrivon.com
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "23 */6 * * *"        # picks up a new MiniSMO release within 6 hours
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - name: Site files
+        run: |
+          mkdir _site
+          rsync -a --exclude '.git' --exclude '.github' --exclude 'scripts' --exclude '_site' ./ _site/
+      - name: MiniSMO installers from the newest releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+          KEEP: "5"
+        run: bash scripts/fetch-minismo-downloads.sh _site/downloads/minismo
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
