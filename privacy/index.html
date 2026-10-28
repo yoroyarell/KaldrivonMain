@@ -34,10 +34,10 @@ footer{border-top:1px solid var(--line);padding:22px 16px;color:var(--muted);fon
 <header><div class="wrap"><a href="/">Kaldrivon <span>/ kaldrivon.com</span></a></div></header>
 <main>
 <h1>Privacy Policy</h1>
-<p class="meta">Effective October 22, 2026 · Covers the website kaldrivon.com and the Kaldrivon MiniSMO desktop application</p>
+<p class="meta">Effective October 28, 2026 · Covers the website kaldrivon.com and the Kaldrivon MiniSMO desktop application</p>
 
 <div class="summary">
-<p><strong>In short:</strong> MiniSMO has no account, no telemetry and no analytics. Kaldrivon receives nothing from the app. What MiniSMO stores stays on your PC, and it connects only to the devices and systems you set up, plus GitHub when you check for updates.</p>
+<p><strong>In short:</strong> MiniSMO needs no Kaldrivon account and has no telemetry and no analytics. Kaldrivon receives nothing from the app. What MiniSMO stores stays on your PC, and it connects only to the devices and systems you set up, plus GitHub to check for updates.</p>
 <p>This website uses a Google advertising tag and Google Fonts and is delivered through GitHub Pages and Cloudflare, which see your IP address when you visit.</p>
 </div>
 
@@ -47,10 +47,11 @@ footer{border-top:1px solid var(--line);padding:22px 16px;color:var(--muted);fon
 <h2>Kaldrivon MiniSMO</h2>
 
 <h3>What MiniSMO stores, and where</h3>
-<p>Everything MiniSMO keeps is stored on your PC, in <code>%LOCALAPPDATA%\Kaldrivon\MiniSMO</code> for your Windows account:</p>
+<p>Everything MiniSMO keeps is stored on your PC, in <code>%LOCALAPPDATA%\Kaldrivon\MiniSMO</code> for your Windows account, or in <code>%ProgramData%\Kaldrivon\MiniSMO</code> when you run MiniSMO as a Windows service:</p>
 <ul>
 <li>the network functions you add (names, addresses, ports, user names) and their configuration snapshots;</li>
-<li>device passwords and other credentials, encrypted with Windows DPAPI for your Windows account;</li>
+<li>device passwords and other credentials, encrypted with Windows DPAPI for your Windows account (as a Windows service: with a key that only the service account can read);</li>
+<li>if you turn on Team mode: the user accounts you create (user name, role, and a salted scrypt hash of the password, never the password itself) and the sign-in sessions of their browsers;</li>
 <li>monitoring data: alarms, performance measurements, VES events, measurement files, the NETCONF log;</li>
 <li>settings, automation rules, API tokens you create, the audit log, application logs, backups and exports;</li>
 <li>your license file, if you install one.</li>
@@ -59,8 +60,8 @@ footer{border-top:1px solid var(--line);padding:22px 16px;color:var(--muted);fon
 
 <h3>What MiniSMO sends, and to whom</h3>
 <ul>
-<li><strong>To your devices and systems:</strong> MiniSMO connects to the network functions, file servers, webhooks and R1 data consumers you configure (NETCONF over SSH, SFTP, FTPES, HTTPS). It sends them what their function requires, such as credentials you entered for that device and the events you chose to forward. It also listens on this PC for VES events, PM file uploads and NETCONF Call Home from your devices.</li>
-<li><strong>To GitHub, for updates:</strong> only when you select <em>CHECK NOW</em>, or once a day if you turn on <em>Check for updates: Once a day</em> (off by default), MiniSMO asks <code>api.github.com</code> for the list of Kaldrivon MiniSMO releases. When you confirm a download, it downloads the installer from GitHub. GitHub receives your IP address and the app name and version in the request. No other information is sent. See the <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener noreferrer">GitHub Privacy Statement</a>.</li>
+<li><strong>To your devices and systems:</strong> MiniSMO connects to the network functions, file servers, webhooks and R1 data consumers you configure (NETCONF over SSH, SFTP, FTPES, HTTPS). It sends them what their function requires, such as credentials you entered for that device and the events you chose to forward. It also listens on this PC for VES events, PM file uploads and NETCONF Call Home from your devices, and, in Team mode, for the browsers of the people you give accounts to.</li>
+<li><strong>To GitHub, for updates:</strong> once a day (<em>Check for updates: Once a day</em>, on by default from version 0.6.0; you can switch it to <em>Only when I select CHECK NOW</em> in <em>SYSTEM &gt; About</em>), and when you select <em>CHECK NOW</em>, MiniSMO asks <code>api.github.com</code> for the list of Kaldrivon MiniSMO releases. When you confirm a download, it downloads the installer from GitHub. GitHub receives your IP address and the app name and version in the request. No other information is sent. See the <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener noreferrer">GitHub Privacy Statement</a>.</li>
 <li><strong>Nothing to Kaldrivon:</strong> MiniSMO does not report usage, crashes, devices, data or license use to Kaldrivon or anyone else. Licenses are checked on your PC, without contacting a server.</li>
 </ul>
 <p>The built-in Help works offline. Links in the app to outside websites open in your browser, where those websites' own policies apply.</p>
